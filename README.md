@@ -47,7 +47,7 @@ app\Http\Kernel.php
 次の1行を$routeMiddlewareの最後に追加する
 ```rb
 protected $routeMiddleware = [
-   ...
+
   'login' =>\App\Http\Middleware\LoginMiddleware::class,
 ]
 ```
