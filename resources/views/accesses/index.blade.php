@@ -36,7 +36,7 @@
 </table>
 <p></p>
 
-<h2>各月(前年以降)</h2>
+<h2>月毎(前年以降)</h2>
 <p></p>
 <table class="table table-hover">
   <thead class="thead-default">
