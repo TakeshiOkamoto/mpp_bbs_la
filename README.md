@@ -19,6 +19,8 @@ la = Laravel
 cd 任意のディレクトリ
 composer create-project --prefer-dist laravel/laravel 任意のプロジェクト名  "6.*"
 ```
+次にココにあるファイルをダウンロードして、プロジェクトに上書きします。
+
 ### アプリ名とデータベースの設定
 .env 
 ```rb
