@@ -27,7 +27,9 @@ APP_NAME="掲示板システム"
 DB_CONNECTION=mysql
 DB_DATABASE=ココを設定
 DB_USERNAME=ココを設定
-DB_PASSWORD=ココを設定
+DB_PASSWORD=ココを設定  
+  
+SESSION_LIFETIME=1440  
 ```
 ### タイムゾーン/言語
 config\app.php    
