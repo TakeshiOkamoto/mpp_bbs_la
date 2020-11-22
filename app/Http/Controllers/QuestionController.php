@@ -94,6 +94,15 @@ class QuestionController extends Controller
     
     public function store(Request $request)
     {
+        // trim
+        $param = [
+            'title' => Controller::trim($request->title),  
+            'name'  => Controller::trim($request->name),  
+            'url'   => Controller::trim($request->url),  
+            'body'  => Controller::trim($request->body),                                  
+        ];        
+        $request->merge($param);
+        
         // バリデーション
         $request->validate(array_merge(Question::Rules(), Answer::Rules()));    
         
@@ -103,7 +112,7 @@ class QuestionController extends Controller
             // Question
             $param = [
                 'lang_type_id' => $request->lang_id,  
-                'title'        => Controller::trim($request->title),  
+                'title'        => $request->title,  
                 'resolved'     => 0,  
                 'pv'           => 0  
             ];
@@ -114,9 +123,9 @@ class QuestionController extends Controller
             // Answer
             $param = [
                 'question_id' => $question->id,  
-                'name'        => Controller::trim($request->name),  
-                'url'         => Controller::trim($request->url),  
-                'body'        => Controller::trim($request->body),                                  
+                'name'        => $request->name,  
+                'url'         => $request->url,  
+                'body'        => $request->body,                                  
                 'ip'          => $request->ip()
             ];
                 
