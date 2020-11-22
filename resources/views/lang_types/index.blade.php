@@ -38,7 +38,7 @@
       <td style="width:170px;">
         <a href="{{ url('lang_types/' . $item->id . '/edit') }}" class="btn btn-primary">編集</a>
         &nbsp;&nbsp;
-        <a href="#" onclick="ajax_delete('「{{ $item->name }}」を削除します。よろしいですか？','{{ url('lang_types/' . $item->id) }}','{{ url('lang_types') }}')" class="btn btn-danger">削除</a>
+        <a href="#" onclick="ajax_delete('「{{ $item->name }}」を削除します。よろしいですか？','{{ url('lang_types/' . $item->id) }}','{{ url('lang_types') }}');return false;" class="btn btn-danger">削除</a>
       </td>      
     </tr>    
     @endforeach
