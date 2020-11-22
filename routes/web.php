@@ -37,5 +37,5 @@ Route::resource('lang_types', 'LangTypeController')->middleware('login');
 Route::get('/admin_login', function () {
     return view('login');
 });
-Route::POST('/admin_login', 'LoginController@login');
+Route::post('/admin_login', 'LoginController@login');
 Route::get('/admin_logout', 'LoginController@logout')->middleware('login');
