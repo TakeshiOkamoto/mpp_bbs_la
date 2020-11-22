@@ -34,14 +34,22 @@ class LangTypeController extends Controller
 
     public function store(Request $request)
     {
+        // trim
+        $param = [
+            'name'        => Controller::trim($request->name),  
+            'keywords'    => Controller::trim($request->keywords),  
+            'description' => Controller::trim($request->description),  
+        ];
+        $request->merge($param);
+              
         // バリデーション
         $request->validate(LangType::$rules);        
         
         // パラメータ
         $param = [
-            'name'        => Controller::trim($request->name),  
-            'keywords'    => Controller::trim($request->keywords),  
-            'description' => Controller::trim($request->description),  
+            'name'        => $request->name,  
+            'keywords'    => $request->keywords,  
+            'description' => $request->description,  
             'sort'        => $request->sort,  
             'show'        => isset($request->show)? "1" : "0"
         ];
@@ -81,18 +89,26 @@ class LangTypeController extends Controller
 
     public function update(Request $request, $id)
     {
+        // trim
+        $param = [
+            'name'        => Controller::trim($request->name),  
+            'keywords'    => Controller::trim($request->keywords),  
+            'description' => Controller::trim($request->description),  
+        ];
+        $request->merge($param); 
+        
         // 自分自身のnameのユニークを確認しない
         $rules = LangType::$rules;
         $rules['name'] = 'required|max:50|unique:lang_types,name,' . $id . ',id';   
-        
+
         // バリデーション     
         $request->validate($rules);  
                
         // パラメータ               
         $param = [
-            'name'        => Controller::trim($request->name),  
-            'keywords'    => Controller::trim($request->keywords),  
-            'description' => Controller::trim($request->description),  
+            'name'        => $request->name,  
+            'keywords'    => $request->keywords,  
+            'description' => $request->description,  
             'sort'        => $request->sort,  
             'show'        => isset($request->show)? "1" : "0"
         ];
