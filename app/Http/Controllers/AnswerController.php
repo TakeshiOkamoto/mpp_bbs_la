@@ -66,6 +66,14 @@ class AnswerController extends Controller
         // データ一覧
         $view = $this->common($request);
         
+        // trim
+        $param = [
+            'name'  => Controller::trim($request->name),  
+            'url'   => Controller::trim($request->url),  
+            'body'  => Controller::trim($request->body),                                  
+        ];        
+        $request->merge($param);
+                
         // バリデーション
         $request->validate(Answer::Rules());    
         
@@ -75,9 +83,9 @@ class AnswerController extends Controller
             // Answer
             $param = [
                 'question_id' => $request->question_id,
-                'name'        => Controller::trim($request->name),  
-                'url'         => Controller::trim($request->url),                  
-                'body'        => Controller::trim($request->body),  
+                'name'        => $request->name,  
+                'url'         => $request->url,                  
+                'body'        => $request->body,  
                 'ip'          => $request->ip()
             ];
                 
@@ -123,6 +131,14 @@ class AnswerController extends Controller
 
     public function update(Request $request, $id)
     {
+        // trim
+        $param = [
+            'name'  => Controller::trim($request->name),  
+            'url'   => Controller::trim($request->url),  
+            'body'  => Controller::trim($request->body),                                  
+        ];        
+        $request->merge($param);
+              
         // バリデーション
         $request->validate(Answer::Rules());  
         
@@ -137,9 +153,9 @@ class AnswerController extends Controller
 
             // パラメータ               
             $param = [
-               'name'        => Controller::trim($request->name),  
-               'url'         => Controller::trim($request->url),                  
-               'body'        => Controller::trim($request->body),  
+               'name'        => $request->name,  
+               'url'         => $request->url,                  
+               'body'        => $request->body,  
                'updated_at' =>  $item[0]->updated_at  // 自動で更新させない               
             ];
               
