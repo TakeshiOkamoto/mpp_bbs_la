@@ -41,7 +41,7 @@ function ajax_delete(msg, url, jump){
   }
 }
 
-window.onload = function(){
+window.addEventListener('load', function(){
   // flashメッセージを3秒後に削除する
   setTimeout(flash_hide, 3000);
-}
+});
