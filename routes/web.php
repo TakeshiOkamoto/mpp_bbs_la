@@ -28,14 +28,14 @@ Route::put('answers/{answer}', 'AnswerController@update')->middleware('login');
 Route::delete('answers/{answer}', 'AnswerController@destroy')->middleware('login');
 
 // アクセス解析
-Route::get('/accesses', 'AccesseController@index')->middleware('login');
+Route::get('accesses', 'AccesseController@index')->middleware('login');
 
 // カテゴリ
 Route::resource('lang_types', 'LangTypeController')->middleware('login');
 
 // ログイン
-Route::get('/admin_login', function () {
+Route::get('admin_login', function () {
     return view('login');
 });
-Route::post('/admin_login', 'LoginController@login');
-Route::get('/admin_logout', 'LoginController@logout')->middleware('login');
+Route::post('admin_login', 'LoginController@login');
+Route::get('admin_logout', 'LoginController@logout')->middleware('login');
