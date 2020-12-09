@@ -22,7 +22,7 @@ class LangTypeController extends Controller
                 $items = $items->where('name', 'like', "%$keyword%");
             }
         }
-        $items = $items->orderby('sort','ASC')->paginate(10); 
+        $items = $items->orderBy('sort','ASC')->paginate(10); 
         
         return view('lang_types.index',['items' => $items, 'name'=> $name]);
     }
