@@ -52,7 +52,7 @@ class QuestionController extends Controller
         }    
 
         //  降順ソート
-        $items = $items->orderby('updated_at', 'DESC')->paginate(25);
+        $items = $items->orderBy('updated_at', 'DESC')->paginate(25);
         
         // 質問者、最終発言者、件数の配列を取得する
         $sql =" SELECT " .
