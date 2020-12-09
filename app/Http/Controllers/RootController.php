@@ -17,7 +17,7 @@ class RootController extends Controller
         config(['database.connections.mysql.strict' => false]);
         DB::reconnect();
        
-        $items = LangType::orderby('sort','ASC')->get();
+        $items = LangType::orderBy('sort','ASC')->get();
                
         // 質問数 コメント数、未返信数、解決数 閲覧数
         $sql = "SELECT ".
