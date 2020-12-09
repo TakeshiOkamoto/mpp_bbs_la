@@ -28,7 +28,7 @@ class AnswerController extends Controller
         }
         
         // 回答
-        $items = Answer::where('question_id', $request->question_id)->orderby('created_at', 'ASC')->get();
+        $items = Answer::where('question_id', $request->question_id)->orderBy('created_at', 'ASC')->get();
         
         // タイトル毎の閲覧数の更新
         $param =[
@@ -195,7 +195,7 @@ class AnswerController extends Controller
             Answer::where('id', [$id])->delete();
             
             // 質問テーブルの最終更新日の再設定
-            $answers = Answer::where('question_id' ,$answer[0]->question_id)->orderby('updated_at','DESC')->get();
+            $answers = Answer::where('question_id' ,$answer[0]->question_id)->orderBy('updated_at','DESC')->get();
             if (count($answers) != 0){
                 $param = [
                     'updated_at' => $answers[0]->updated_at  
