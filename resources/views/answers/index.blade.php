@@ -54,25 +54,31 @@
         <span>&nbsp;IP: </span> 
         <span>[{{ $item->ip }}]</span>      
       @endif
-      {{-- 本文 --}} 
-      <p>{!! $item->body !!}</p>
-      {{-- 管理機能 --}}
-      @if (session()->has('name'))
-       <span><a href="{{ url('answers/' . $item->id  . '/edit')}}" class="btn btn-primary mr-3">編集</a></span>
-       <span><a href="#" onclick="ajax_delete('「No.{{ $item->id }}」を削除します。よろしいですか？','{{ url('answers/' . $item->id) }}','{{ url('answers?question_id=' . $question->id) }}');return false;" class="btn btn-danger">削除</a></span>
-      @endif  
     </div>    
   </div>
   <div class="clearfix">
     <div class="float-none"></div>  
   </div>  
+  {{-- 本文 --}} 
+  <p>{!! $item->body !!}</p>
+  {{-- 管理機能 --}}
+  @if (session()->has('name'))
+   <span><a href="{{ url('answers/' . $item->id  . '/edit')}}" class="btn btn-primary mr-3">編集</a></span>
+   <span><a href="#" onclick="ajax_delete('「No.{{ $item->id }}」を削除します。よろしいですか？','{{ url('answers/' . $item->id) }}','{{ url('answers?question_id=' . $question->id) }}');return false;" class="btn btn-danger">削除</a></span>
+  @endif  
 @endforeach
 
 @php
   // foreachの$itemが残存してるのでNULLへ
   $item = null;
 @endphp
-
+  {{-- 本文 --}} 
+  <p>{!! $item->body !!}</p>
+  {{-- 管理機能 --}}
+  @if (session()->has('name'))
+   <span><a href="{{ url('answers/' . $item->id  . '/edit')}}" class="btn btn-primary mr-3">編集</a></span>
+   <span><a href="#" onclick="ajax_delete('「No.{{ $item->id }}」を削除します。よろしいですか？','{{ url('answers/' . $item->id) }}','{{ url('answers?question_id=' . $question->id) }}');return false;" class="btn btn-danger">削除</a></span>
+  @endif  
 <hr style="margin-bottom:5px;background-color:#c0c0c0;"> 
 <p></p>
 @include('answers._form', ['form_action' => url('answers?question_id=' . $question->id )])  
